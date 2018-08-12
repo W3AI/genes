@@ -1,4 +1,7 @@
-class Gene {
+import { TastingRating } from "./TastingRating";
+import { PlaceLocation } from "./PlaceLocation";
+
+export class Gene {
 
     // Properties
     industry: string;

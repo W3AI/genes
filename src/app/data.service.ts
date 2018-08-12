@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Gene } from './logic/Gene';
+import { PlaceLocation } from './logic/PlaceLocation';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class DataService {
     callback(list);
   }
 
-  save(coffee, callback) {
+  save(gene, callback) {
     // TODO: Change with a real Web Service
     callback(true);
   }
