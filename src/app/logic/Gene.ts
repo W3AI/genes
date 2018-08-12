@@ -1,13 +1,14 @@
 class Gene {
 
     // Properties
-    name: string;
-    place: string;
     industry: string;
     type: string;
-    location: PlaceLocation;
     rating: number;
     notes: string;
     tastingRating: TastingRating;
+
+    constructor(public name: string, public place: string, public location: PlaceLocation) {
+
+    }
 
 }
