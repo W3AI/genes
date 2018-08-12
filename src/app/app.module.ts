@@ -10,6 +10,13 @@ import { MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatSli
 import 'hammerjs';
 import { ListComponent } from './list/list.component';
 import { GeneComponent } from './gene/gene.component';
+import { Routes, RouterModule } from "@angular/router";
+
+const routes : Routes = [
+  { path: '', component: ListComponent },
+  { path: 'gene', component: GeneComponent },
+  { path: 'gene/:id', component: GeneComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,6 +25,7 @@ import { GeneComponent } from './gene/gene.component';
     GeneComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule, BrowserAnimationsModule,
     MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatSliderModule,
     MatToolbarModule, MatCardModule, MatSlideToggleModule
