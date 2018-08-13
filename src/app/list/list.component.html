@@ -2,8 +2,8 @@
   <mat-card-title>{{ gene.name }}</mat-card-title>
   <mat-card-subtitle>Place: {{ gene.place }}</mat-card-subtitle>
   <mat-card-actions>
-    <button mat-button><mat-icon>map</mat-icon></button>
-    <button mat-button><mat-icon>share</mat-icon></button>
+    <button (click)="goMap(gene)" mat-button><mat-icon>map</mat-icon></button>
+    <button (click)="share(gene)" mat-button><mat-icon>share</mat-icon></button>
     <button (click)="goDetails(gene)" mat-button><mat-icon>list</mat-icon></button>
   </mat-card-actions>
 </mat-card>
