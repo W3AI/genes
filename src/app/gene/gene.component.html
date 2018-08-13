@@ -1,8 +1,11 @@
 <form>
 
 <mat-card>
+  <mat-card-title>
+    Basic Skill Info
+  </mat-card-title>
   <mat-form-field>
-    <input matInput placeholder="Skill Name" name="name" [(ngModel)]="gene.name">
+    <input matInput placeholder="Skill" name="name" [(ngModel)]="gene.name">
   </mat-form-field>
   <mat-select placeholder="Skill Type" name="type" [(ngModel)]="gene.type">
     <mat-option *ngFor="let type of types" [value]="type">
@@ -12,7 +15,9 @@
 </mat-card>
 
 <mat-card>
-
+    <mat-card-title>
+        Place Info
+      </mat-card-title>
     <mat-form-field>
         <input matInput placeholder="Place Name"
                name="place" [(ngModel)]="gene.place">
@@ -32,11 +37,16 @@
 </mat-card>
 
 <mat-card>
+    <mat-card-title>
+        Ratings
+      </mat-card-title>
   <mat-card-subtitle>Overall Rating</mat-card-subtitle>
   <mat-slider max="10" thumbLabel name="rating" 
     [(ngModel)]="gene.rating" tickInterval="1"></mat-slider>
 
-  <mat-slide-toggle #tastingSelector>Tasting Ratings</mat-slide-toggle>
+  <mat-card-subtitle>
+    <mat-slide-toggle #tastingSelector (change)="tastingRatingChanged(tastingSelector.checked)">Tasting Ratings</mat-slide-toggle>
+  </mat-card-subtitle>
 
   <section id="tasting" *ngIf="tastingSelector.checked">
     <label>Aroma</label>
@@ -73,7 +83,8 @@
 </mat-card>
 
 <mat-card>
-  {{ gene | json }}
+  <button mat-raised-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="accent" (click)="save()">Save</button>
 </mat-card>
 
 

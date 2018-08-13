@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Gene } from '../logic/Gene';
 import { GeolocationService } from "../geolocation.service";
+import { TastingRating } from '../logic/TastingRating';
 
 @Component({
   selector: 'app-gene',
@@ -17,6 +18,22 @@ export class GeneComponent implements OnInit {
               private geolocation: GeolocationService) { }
 
   routingSubscription: any;
+
+  tastingRatingChanged(checked: boolean) {
+    if (checked) {
+      this.gene.tastingRating = new TastingRating();
+    } else {
+      this.gene.tastingRating = null;
+    }
+  }
+
+  cancel() {
+
+  }
+
+  save() {
+    
+  }
 
   ngOnInit() {
     this.gene = new Gene();
