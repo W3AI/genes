@@ -15,7 +15,7 @@ export class Gene {
                 public location: PlaceLocation = null) {
 
         this.location = new PlaceLocation();
-
+        this.tastingRating = new TastingRating();
     }
 
 }
