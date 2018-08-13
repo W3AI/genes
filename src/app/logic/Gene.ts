@@ -4,6 +4,7 @@ import { PlaceLocation } from "./PlaceLocation";
 export class Gene {
 
     // Properties
+    _id: string;
     industry: string;
     type: string;
     rating: number;

@@ -12,6 +12,13 @@ export class DataService {
 
   public endpoint = "http://localhost:3000";
 
+  get(geneId: string, callback) {
+    this.http.get(`${this.endpoint}/genes/${geneId}`)
+      .subscribe(response => {
+        callback(response.json());
+      })
+  }
+
   getList(callback) {
     // Dummy data for UI Dev
     // const list = [

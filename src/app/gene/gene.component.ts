@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Gene } from '../logic/Gene';
 import { GeolocationService } from "../geolocation.service";
 import { TastingRating } from '../logic/TastingRating';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-gene',
@@ -12,10 +13,14 @@ import { TastingRating } from '../logic/TastingRating';
 export class GeneComponent implements OnInit {
 
   gene : Gene;
+  tastingEnabled : boolean = false;
   types = ["manual", "automatic", "bot"];
 
   constructor(private route: ActivatedRoute,
-              private geolocation: GeolocationService) { }
+              private geolocation: GeolocationService,
+              private router: Router,
+              private data: DataService
+            ) { }
 
   routingSubscription: any;
 
@@ -28,11 +33,15 @@ export class GeneComponent implements OnInit {
   }
 
   cancel() {
-
+    this.router.navigate(["/"]);
   }
 
   save() {
-    
+    this.data.save(this.gene, result => {
+      if (result) {
+        this.router.navigate(["/"]);
+      }
+    });
   }
 
   ngOnInit() {
@@ -40,6 +49,14 @@ export class GeneComponent implements OnInit {
     this.routingSubscription = 
       this.route.params.subscribe(params => {
         console.log(params["id"]);
+        if (params["id"]) {
+          this.data.get(params["id"], response => {
+            this.gene = response;
+            if (this.gene.tastingRating) {
+              this.tastingEnabled = true;
+            }
+          });
+        }
       });
 
     this.geolocation.requestLocation(location => {
