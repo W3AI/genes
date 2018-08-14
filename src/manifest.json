@@ -4,6 +4,9 @@
     "orientation": "any",
     "scope": "/",
     "display": "standalone",
+    "short_name": "My Business Genes",
+    "theme_color": "#472D21",
+    "background_color": "#C0B764",
     "icons": [
         {
           "src": "assets/icons/icon_96.png",
