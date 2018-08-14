@@ -14,7 +14,7 @@ export class GeneComponent implements OnInit {
 
   gene : Gene;
   tastingEnabled : boolean = false;
-  types = ["manual", "automatic", "bot"];
+  types = ["manual", "scripted", "autopilot"];
 
   constructor(private route: ActivatedRoute,
               private geolocation: GeolocationService,
