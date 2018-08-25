@@ -50,6 +50,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "port": 4220,
             "browserTarget": "genes:build"
           },
           "configurations": {
